@@ -85,7 +85,7 @@ const levelexpmax = [30, 150, 750, 3750, 17750];
 
 document.getElementById('help-button').onclick = () =>
 {
-    showalert("信息", `<p>版本号：${Version}</p><p>作者：水螅</p><p>感谢：倾昀</p>`);
+    showalert("信息", `<p>版本号：${Version}</p><p>作者：水螅</p><p>角色设计：水螅，夜九音</p><p>感谢：倾昀</p>`);
 };
 tempid = -1;
 function showevents()
