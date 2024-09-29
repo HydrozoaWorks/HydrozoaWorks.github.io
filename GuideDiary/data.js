@@ -7,7 +7,7 @@ function defaultdata()
         v: 1.0,
         name: "黛",
         day: 1,
-        stamina: 100, // 体力值 (百分比)
+        stamina: 100, // 饱腹度值 (百分比)
         mental: 100,  // 精神力 (百分比)
         water: 100,//水分
         guideLevel: 0,
@@ -63,11 +63,11 @@ const people = [
 ];
 let data;
 const shoplist = [
-    { name: "低级营养液", cost: "1", text: "恢复30%体力和30%水分" },
-    { name: "中级营养液", cost: "5", text: "恢复60%体力、60%水分和10%精神力" },
-    { name: "高级营养液", cost: "25", text: "恢复100%体力、100%水分和20%精神力" },
-    { name: "豪华营养液", cost: "50", text: "恢复100%体力、100%水分和30%精神力" },
-    { name: "有机食物", cost: "100", text: "恢复100%体力、100%水分和100%精神力" },
+    { name: "低级营养液", cost: "1", text: "恢复30%饱腹度和30%水分" },
+    { name: "中级营养液", cost: "5", text: "恢复60%饱腹度、60%水分和10%精神力" },
+    { name: "高级营养液", cost: "25", text: "恢复100%饱腹度、100%水分和20%精神力" },
+    { name: "豪华营养液", cost: "50", text: "恢复100%饱腹度、100%水分和30%精神力" },
+    { name: "有机食物", cost: "100", text: "恢复100%饱腹度、100%水分和100%精神力" },
     { name: "C级精神突破剂", cost: "25", text: "可以让经验足以突破的D级向导升级为C级向导" },
     { name: "B级精神突破剂", cost: "125", text: "可以让经验足以突破的C级向导升级为B级向导" },
     { name: "A级精神突破剂", cost: "625", text: "可以让经验足以突破的B级向导升级为A级向导" },
@@ -106,14 +106,14 @@ function showevents()
         }
         else if (temp[0] == 2)
         {
-            //0 xxx送来了一些手制小饼干 恢复体力100精神10 （只有精灵
+            //0 xxx送来了一些手制小饼干 恢复饱腹度100精神10 （只有精灵
             //2xxx送给你一瓶无污染水 恢复水分100
             //3xxx送了你一管精神补剂 恢复精神10
-            //4xxx送了你一些小零食 恢复水分30 体力30
+            //4xxx送了你一些小零食 恢复水分30 饱腹度30
             //  1   xxx送给你一些珠宝，你拿去兑换了30积分（s级以上
             if (temp[2] == 0)
             {
-                showalert("礼物", `${people[temp[1]].name}送来了一些手制小饼干，你吃了后体力水分和精神力都恢复了`, showevents);
+                showalert("礼物", `${people[temp[1]].name}送来了一些手制小饼干，你吃了后饱腹度水分和精神力都恢复了`, showevents);
                 addmental(100);
                 addstamina(100);
                 addwater(100);
@@ -135,7 +135,7 @@ function showevents()
             }
             else if (temp[2] == 4)
             {
-                showalert("礼物", `${people[temp[1]].name}送了你一些小零食，你吃了后体力和水分都恢复了一些`, showevents);
+                showalert("礼物", `${people[temp[1]].name}送了你一些小零食，你吃了后饱腹度和水分都恢复了一些`, showevents);
                 addstamina(30);
                 addwater(30);
             }
@@ -526,10 +526,10 @@ function setshop()
     };
 
     // 生成商店列表
-   // 0{ name: "低级营养液", cost: "1", text: "恢复30%体力和30%水分" },
-   // 1{ name: "中级营养液", cost: "5", text: "恢复60%体力、60%水分和10%精神力" },
-   // 2{ name: "高级营养液", cost: "25", text: "恢复100%体力、100%水分和30%精神力" },
-   // 3{ name: "有机食物", cost: "100", text: "恢复100%体力、100%水分和100%精神力" },
+   // 0{ name: "低级营养液", cost: "1", text: "恢复30%饱腹度和30%水分" },
+   // 1{ name: "中级营养液", cost: "5", text: "恢复60%饱腹度、60%水分和10%精神力" },
+   // 2{ name: "高级营养液", cost: "25", text: "恢复100%饱腹度、100%水分和30%精神力" },
+   // 3{ name: "有机食物", cost: "100", text: "恢复100%饱腹度、100%水分和100%精神力" },
    // 4{ name: "C级精神突破剂", cost: "25", text: "可以让经验足以突破的D级向导升级为C级向导" },
    // 5{ name: "B级精神突破剂", cost: "125", text: "可以让经验足以突破的C级向导升级为B级向导" },
    // 6{ name: "A级精神突破剂", cost: "625", text: "可以让经验足以突破的B级向导升级为A级向导" },
@@ -1312,7 +1312,7 @@ function win(npc)
                     `<div>${people[npc.id].name}扬起脖颈舒出了一口气，这仿若呻吟一样的声音令你有些不好意思，他却似笑非笑的看着你，俯身在你耳边吹了一口气</div>`,
                     `<div>${people[npc.id].name}的尾巴卷在了你的腰上，尾尖一点一点划过你的皮肤，你想要抓开它，却被他轻轻束住了双手</div>`,
                     `<div>${people[npc.id].name}的呼吸有些急促，而他的精神体不知何时攀上了你的身体，一寸寸的摩挲过你的皮肤，让你甚至有点担心自己会被束紧到无法呼吸。你略带责备的看了${people[npc.id].name}一眼，他努力平息着呼吸，放松了对你的束缚</div>`,
-                    `<div>${people[npc.id].name}精神体的龙身突然变大，将你含入了它的口中，xxx耳根薄红，匆匆忙忙的将你抱了出来</div>`
+                    `<div>${people[npc.id].name}精神体的龙身突然变大，将你含入了它的口中，${people[npc.id].name}耳根薄红，匆匆忙忙的将你抱了出来</div>`
                 ];
                 num0 = npc.id * 2 + Math.floor(Math.random() * 2);
                 addlog(eventlogs[num0]);
@@ -1639,7 +1639,7 @@ function addtime(isdate=true)
         addwater(100);
         addstamina(100);
     }
-    //如果体力没有了
+    //如果饱腹度没有了
     if (data.stamina == 0)
     {
         if (data.guideLevel == 0)
@@ -1650,7 +1650,7 @@ function addtime(isdate=true)
         }
         else
         {
-            showalert("向导中心", "已为您紧急补充了体力，扣除1点积分");
+            showalert("向导中心", "已为您紧急补充了营养液，扣除1点积分");
             addwater(30);
             addstamina(30);
             addscore(-1);
@@ -1817,7 +1817,7 @@ function godate()
 async function gameover(num)
 {
     console.log("gameover");
-    //1是饿死2是被袭击3是满一年
+    //1是饿死2是被袭击3是满时间
     const cardBody = document.querySelector('.card-body');
     cardBody.innerHTML = '';
 
@@ -1899,7 +1899,7 @@ async function gameover(num)
         {
             arr.push(npc.id);
         }
-        if (npc.level >= 5)
+        if (npc.level >= 5 && data.killer!=npc.id)
         {
             tid = npc.id;
         }
@@ -1954,7 +1954,7 @@ async function gameover(num)
     arr = [];
     for (const npc of data.npcs)
     {
-        if (npc.love >= 20)
+        if (npc.love >= 20 && data.killer!=npc.id)
         {
             arr.push(npc.id);
         }
@@ -1993,9 +1993,9 @@ async function gameover(num)
             await delay(300);
             text = "<div>在半年的向导实习期结束后，";
             num2 = 0;
-            if (data.par != -1)
+            if (data.par != -1 && data.killer!=data.par)
             {
-                text += `你和你的配偶${people[arr[0]].race}哨兵${people[arr[0]].name}搬到了一起住，他对你的迷恋似乎永远不会随着时间而减淡。你本以为同居后你们会有更多的时间独处，但`;
+                text += `你和你的配偶${people[data.par].race}哨兵${people[data.par].name}搬到了一起住，他对你的迷恋似乎永远不会随着时间而减淡。你本以为同居后你们会有更多的时间独处，但`;
                 for (i = 0; i < arr.length; i++)
                 {
                     if (arr[i] != data.par)
@@ -2071,7 +2071,7 @@ async function gameover(num)
     }
     else
     {
-        if (data.par != -1)
+        if (data.par != -1&&data.killer!=data.par)
         {
             const br = document.createElement('br');
             cardBody.appendChild(br);
@@ -2089,8 +2089,9 @@ async function gameover(num)
             // 将图片添加到容器中
             infoDiv.appendChild(img);
             cardBody.appendChild(infoDiv);
+            arr = arr.filter(num => num !== data.par); 
         }
-        if (arr.length > 1)
+        if (arr.length > 0)
         {
             const br = document.createElement('br');
             cardBody.appendChild(br);
@@ -2140,7 +2141,9 @@ async function gameover(num)
             arr1.push(npc.id);
         }
     }
-    const result = arr1.filter(item => !arr1.includes(item));
+    let result = arr1.filter(item => !arr.includes(item));
+    result = result.filter(num => num !== data.par);
+    result = result.filter(num => num !== data.killer);
     if (result.length > 0)
     {
         const br = document.createElement('br');
@@ -2204,7 +2207,7 @@ async function gameover(num)
         infoDiv.innerHTML = `<div>有天晚上，你在深夜中醒来，突然发现床边有一座巨大的黑影笼在你的身上。你不知道那是谁……或者是什么，只能感到对方的视线一寸寸舔过你的身体。许久之后，黑影沉默的离开了，你发现你的枕边有一块流光溢彩的晶石，可能是这位深夜来客为你留下的最后一个礼物</div>`;
         // 创建图片元素
         const img = document.createElement('img');
-        img.src = "npc" + data.killer + ".gif"; // 将图片路径赋值给 src
+        img.src = "npc" + data.killer + "_d.gif"; // 将图片路径赋值给 src
         img.alt = "npc图像"; // 设置替代文本
         img.style.width = '128px'; // 设定图片宽度为100%
         img.style.height = 'auto'; // 自动调整高度
