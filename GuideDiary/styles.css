@@ -1,0 +1,210 @@
+/* 自定义样式 */
+body {
+    background-color: #f4f4f4;
+}
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.fade-in {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.card {
+    max-width: 600px;
+    margin: auto;
+}
+
+.card-header {
+    background-color: #f8d7da;
+    color: white;
+}
+
+.card-body h2 {
+    font-size: 1.5rem;
+}
+ /* 自定义按钮样式 */
+.custom-button {
+    background-color: #f8d7da; /* 淡粉色背景 */
+    color: black;
+    border: none;
+    padding: 10px 20px 10px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 添加阴影 */
+    margin-right: 10px; /* 右侧间距 */
+}
+
+        .custom-button:hover {
+            background-color: #f5c6cb;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* 增加阴影 */
+        }
+    .custom-button:disabled {
+        background-color: #d6d6d6; /* 灰色背景 */
+        color: #a1a1a1; /* 更淡的文字颜色 */
+        cursor: not-allowed; /* 禁用状态光标 */
+        box-shadow: none; /* 移除阴影 */
+    }
+		
+		  /* 进度条样式 */
+        .progress-bar-custom {
+            height: 20px;
+            background-color: #f8d7da;
+        }
+
+.progress-bar-custom1 {
+    height: 20px;
+    background-color: #b4d4ff;
+}
+
+        /* gif图像样式 */
+.gif-image {
+    width: 100px;
+    height: 100px;
+    background-color: #f8d7da;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: #fff;
+}
+		
+	
+
+        /* applicant-button 样式 */
+.applicant-button {
+    background-color: #f8d7da; /* 淡粉色背景 */
+
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 添加阴影 */
+
+    color: #000000; /* 设置文字为黑色 */
+
+    padding: 15px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    margin-bottom: 15px; /* 增加上下空隔 */
+}
+
+            .applicant-button:hover {
+                background-color: #f5c6cb;
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* 增加阴影 */
+                
+            }
+
+            .applicant-button:disabled {
+                background-color: #d6d6d6; /* 灰色背景 */
+                color: #a1a1a1; /* 更淡的文字颜色 */
+                cursor: not-allowed; /* 禁用状态光标 */
+                box-shadow: none; /* 移除阴影 */
+            }
+
+.applicant-info {
+    margin-left: 15px;
+  
+}
+
+        .applicant-info div {
+            margin-bottom: 5px;
+        }
+
+.modal-header {
+    background-color: #f8d7da; /* 粉红色 */
+}
+
+.color-bar {
+    position: relative;
+    width: 200px;
+    height: 10px;
+    background-color: gray;
+    margin: 10px auto;
+}
+
+    .color-bar .red-part {
+        position: absolute;
+        right: 0;
+        height: 100%;
+        background-color: #f8d7da;
+    }
+
+.triangle {
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 30px solid #b4d4ff;
+    position: relative;
+    top: 10px;
+}
+
+.npc-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#npc-img {
+    margin-right: 10px; /* 可根据需要调整间距 */
+}
+
+.container {
+    text-align: center;
+}
+
+.help-button {
+    width: 48px;
+    height: 51px;
+    margin-left: 8px;
+    cursor: pointer;
+    transition: filter 0.3s ease;
+}
+
+    .help-button:hover {
+        filter: brightness(0.7);
+    }
+
+#bts {
+    display: flex; /* 使用 flexbox 布局 */
+    flex-wrap: wrap; /* 如果一行放不下则换到下一行 */
+    gap: 10px; /* 设置按钮之间的横竖间隔为 10 像素 */
+    justify-content: start; /* 将按钮靠左对齐（或你可以改成 center、space-between 等） */
+}
+
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+    /* 初始状态：完全透明 */
+    30% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 1;
+    }
+    /* 中间状态：完全不透明 */
+    100% {
+        opacity: 0;
+    }
+    /* 结束状态：再次完全透明 */
+}
+
+.fade-text {
+    position: fixed; /* 固定定位，覆盖整个屏幕 */
+    top: 60%; /* 垂直居中 */
+    left: 50%; /* 水平居中 */
+    transform: translate(-50%, -50%); /* 使用transform使元素真正居中 */
+    opacity: 0; /* 初始状态：隐藏 */
+    font-size: 16px; /* 调整字体大小 */
+    color: black; /* 文字颜色 */
+    animation: fadeInOut 1s ease-in-out; /* 动画持续时间1秒 */
+    animation-fill-mode: forwards; /* 保持动画结束后的状态 */
+    text-align: center; /* 文字居中对齐 */
+    background-color: white;
+}

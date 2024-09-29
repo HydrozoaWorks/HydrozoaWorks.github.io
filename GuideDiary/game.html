@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实习向导日记</title>
+    <!-- 引入Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=1.5">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card shadow-sm">
+            <div class="card-header text-center">
+                <h1 class="card-title">实习向导日记</h1>
+            </div>
+            <div class="card-body">
+                <div class="npc-container">
+                    <div><img src="npc0.gif" alt="NPC" id="npc-img"></div>
+                    <div><p><strong id="npc-name">姓名</strong></p><p><strong id="npc-race">种族</strong></p><p><strong id="npc-match">匹配度</strong></p></div>
+                 
+                </div>
+
+                <div class="my-3">
+                    <div class="row">
+                        <label class="col-3">污染度</label>
+                        <div class="col-9">
+                            <div class="progress">
+                                <div id="pollution-bar" class="progress-bar progress-bar-custom" role="progressbar" style="width: 50%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="my-3">
+                    <div class="row">
+                        <label class="col-3">服从度</label>
+                        <div class="col-9">
+                            <div class="progress">
+                                <div id="obedience-bar" class="progress-bar progress-bar-custom" role="progressbar" style="width: 50%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="my-3">
+                    <div class="row">
+                        <label class="col-3">舒适度</label>
+                        <div class="col-9">
+                            <div class="progress">
+                                <div id="comfort-bar" class="progress-bar progress-bar-custom" role="progressbar" style="width: 50%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="my-3">
+                    <div class="row">
+                        <label class="col-3">痛苦度</label>
+                        <div class="col-9">
+                            <div class="progress">
+                                <div id="painLevel-bar" class="progress-bar progress-bar-custom" role="progressbar" style="width: 50%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="my-3">
+                    <div class="row">
+                        <label class="col-3">向导精神力</label>
+                        <div class="col-9">
+                            <div class="progress">
+                                <div id="mental-bar" class="progress-bar progress-bar-custom1" role="progressbar" style="width: 50%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div id="bts">
+                     <button class="custom-button" id="act0-button">安抚</button>
+                     <button class="custom-button" id="act1-button">进入精神海</button>
+                     <button class="custom-button" id="act2-button">精神净化</button>
+                    <button class="custom-button" id="quit-button">结束精神梳理</button>
+                </div>
+                <div id="gameplay" class="container" >
+                    <div class="triangle" id="triangle"></div>
+                    <div class="color-bar">
+                        <div class="red-part"></div>
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <div id="log-container">
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- 引入Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

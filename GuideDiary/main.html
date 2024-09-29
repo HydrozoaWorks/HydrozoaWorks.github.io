@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>实习向导日记</title>
+    <!-- 引入Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=1.5">
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="card shadow-sm">
+            <div class="card-header text-center">
+                <h1 class="card-title">实习向导日记</h1>
+            </div>
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div><strong id="name">黛</strong>    <span id="par-name"></span></div>
+                    <div><strong id="date">星历1135年9月1日</strong></div>
+                </div>
+
+                <div class="my-3">
+                    <div class="row">
+                        <label class="col-3">体力</label>
+                        <div class="col-9">
+                            <div class="progress">
+                                <div id="stamina-bar" class="progress-bar progress-bar-custom" role="progressbar" style="width: 50%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="my-3">
+                    <div class="row">
+                        <label class="col-3">精神力</label>
+                        <div class="col-9">
+                            <div class="progress">
+                                <div id="mental-bar" class="progress-bar progress-bar-custom" role="progressbar" style="width: 50%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="my-3">
+                    <div class="row">
+                        <label class="col-3">水分</label>
+                        <div class="col-9">
+                            <div class="progress">
+                                <div id="water-bar" class="progress-bar progress-bar-custom" role="progressbar" style="width: 50%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="my-3">
+                    <div class="d-flex justify-content-between">
+                        <div>向导等级 <strong id="guide-level">D</strong></div>
+                        <div>
+                            exp
+                            <div class="progress" style="width: 150px; display:inline-block;">
+                                <div id="exp-bar" class="progress-bar progress-bar-custom" role="progressbar" style="width: 50%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="my-3">
+                    <div>积分 <strong id="score">123456</strong></div>
+                </div>
+
+                <div class="my-3">
+                    <div class="d-flex justify-content-around">
+                        <button class="custom-button" id="shop-button">前往商店</button>
+                        <button class="custom-button" id="room-button">诊疗室详情</button>
+                    </div>
+                </div>
+
+                <hr>
+
+                <h4 id="list-title">精神疏导申请</h4>
+
+                <div id="applicant-list">
+                    <!-- 动态生成的精神疏导申请列表 -->
+                </div>
+                <div class="my-3 d-flex justify-content-end">
+                    <button class="custom-button" id="rest-button">今日休息</button>
+                    <button class="custom-button" id="delete-button">重开</button>
+                  
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- 引入Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+     <script src="data.js"></script>
+</body>
+</html>
