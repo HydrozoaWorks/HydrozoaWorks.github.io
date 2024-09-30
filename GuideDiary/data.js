@@ -97,7 +97,7 @@ function showevents()
         if (temp[0] == 0)
         {
             tempid = temp[1];
-            showask("申请", `${people[temp[1]].race}哨兵${people[temp[1]].name}提出了和你的结婚申请`, "同意", "拒绝", marry, noaction);
+            showask("申请", `${people[temp[1]].race}哨兵${people[temp[1]].name}提出了和你的结婚申请`, "同意", "拒绝", marry, noaction,true);
         }
         else if (temp[0] == 1)
         {
@@ -113,43 +113,65 @@ function showevents()
             //  1   xxx送给你一些珠宝，你拿去兑换了30积分（s级以上
             if (temp[2] == 0)
             {
-                showalert("礼物", `${people[temp[1]].name}送来了一些手制小饼干，你吃了后饱腹度水分和精神力都恢复了`, showevents);
+                showalert("礼物", `${people[temp[1]].race}哨兵${people[temp[1]].name}送来了一些手制小饼干，你吃了后饱腹度水分和精神力都恢复了`, showevents);
                 addmental(100);
                 addstamina(100);
                 addwater(100);
             }
             else if (temp[2] == 1)
             {
-                showalert("礼物", `${people[temp[1]].name}送给你一些珠宝，你拿去兑换了${temp[3]}积分`, showevents);
+                showalert("礼物", `${people[temp[1]].race}哨兵${people[temp[1]].name}送给你一些珠宝，你拿去兑换了${temp[3]}积分`, showevents);
                 addscore(temp[3]);
             }
             else if (temp[2] == 2)
             {
-                showalert("礼物", `${people[temp[1]].name}送给你一瓶无污染水，你喝了后身体里的水分恢复了`, showevents);
+                showalert("礼物", `${people[temp[1]].race}哨兵${people[temp[1]].name}送给你一瓶无污染水，你喝了后身体里的水分恢复了`, showevents);
                 addwater(100);
             }
             else if (temp[2] == 3)
             {
-                showalert("礼物", `${people[temp[1]].name}送了你一管精神补剂，你喝了后精神力恢复了一些`, showevents);
+                showalert("礼物", `${people[temp[1]].race}哨兵${people[temp[1]].name}送了你一管精神补剂，你喝了后精神力恢复了一些`, showevents);
                 addmental(10);
             }
             else if (temp[2] == 4)
             {
-                showalert("礼物", `${people[temp[1]].name}送了你一些小零食，你吃了后饱腹度和水分都恢复了一些`, showevents);
+                showalert("礼物", `${people[temp[1]].race}哨兵${people[temp[1]].name}送了你一些小零食，你吃了后饱腹度和水分都恢复了一些`, showevents);
                 addstamina(30);
                 addwater(30);
             }
         }
+       
         else if (temp[0] == 3)
         {
-            showalert("配偶", `获得配偶${people[data.par].name}的收入${temp[1]}积分`);
+            showalert("配偶", `配偶${people[data.par].name}上交了工资${temp[1]}积分`);
+        }
+        else if (temp[0] == 4)
+        {
+            if (data.npcs[data.par].inhome)
+            {
+                showalert("礼物", `收到了${people[temp[1]].race}哨兵${people[temp[1]].name}送来的鲜花，被配偶${people[data.par].name}看到，${people[data.par].name}闹了一会别扭，用了好几个亲亲才哄好`);
+            }
+            else
+            {
+                showalert("礼物", `收到了${people[temp[1]].race}哨兵${people[temp[1]].name}送来的鲜花`);
+            }
         }
     }
 }
 
-function showask(title,content,yestext,notext, yescallback,nocallback)
+function showask(title,content,yestext,notext, yescallback,nocallback,isred=false)
 {
-        // 传入的回调函数
+    // 传入的回调函数
+    if (isred)
+    {
+        
+        document.getElementById('asktitle').style.backgroundColor = '#ed4545';
+    }
+    else
+    {
+       
+        document.getElementById('asktitle').style.backgroundColor = '#f8d7da';
+    }
         const yesCallback = function ()
         {
             confirmModal.hide();
@@ -1722,10 +1744,17 @@ function addtime(isdate=true)
         {
             if (npc.inhome)
             {
-                if (npc.love > 0 && Math.random() < 0.1 && (data.par == -1 || data.par == npc.id))
+                if (npc.love > 0 && Math.random() < 0.1 )
                 {
-                    data.dayevent.push([1, npc.id]);
-                    break;
+                    if (data.par == -1 || data.par == npc.id)
+                    {
+                        data.dayevent.push([1, npc.id]);
+                        break;
+                    }
+                    else
+                    {
+                        data.dayevent.push([4, npc.id ]);
+                    }
                 }
             }
         }
