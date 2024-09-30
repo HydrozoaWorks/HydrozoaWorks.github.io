@@ -17,7 +17,8 @@ function defaultdata()
         dideat: false,
         roomlevel: 0,
         roomlevel1: 0,
-        par: -1,//配偶
+       par: -1,//配偶
+      
         curenum: 0,
         npcs: [],
         dayevent: []
@@ -1220,6 +1221,7 @@ function win(npc)
             npc.savenum++;
             if (data.guideLevel == npc.level && npc.savenum >= 10 && !npc.isInjured && npc.trust == 100)
             {
+               
                 npc.savenum = 0;
                 npc.level++;
                 npc.pollution = 0;
@@ -1920,7 +1922,7 @@ async function gameover(num)
             cardBody.appendChild(infoDiv);
         }
     }
-    tid = -1;
+    tidarr = [];
     arr = [];
     for (const npc of data.npcs)
     {
@@ -1930,7 +1932,7 @@ async function gameover(num)
         }
         if (npc.level >= 5 && data.killer!=npc.id)
         {
-            tid = npc.id;
+            tidarr.push(npc.id);
         }
     }
     if (arr.length > 0)
@@ -1967,13 +1969,24 @@ async function gameover(num)
             infoDiv.appendChild(img);
         }
         cardBody.appendChild(infoDiv);
-        if (tid != -1)
+        if (tidarr.length>0 )
         {
+           
             const br = document.createElement('br');
             cardBody.appendChild(br);
             await delay(300);
             infoDiv = document.createElement('div');
-            infoDiv.innerHTML = `<div>宇宙第一位SS级哨兵${people[tid].name}的出现令这场绵延千年的战争战局出现了巨大的变化，或许再过不久，大家就能过上不用再打仗的日子了吧。而这一切，都是你的功劳</div>`;
+            console.log(tidarr.length);
+            if (tidarr.length == 1)
+            {
+                console.log("a1");
+                infoDiv.innerHTML = `<div>宇宙第一位SS级哨兵${people[tidarr[0]].name}的出现令这场绵延千年的战争战局出现了巨大的变化，或许再过不久，大家就能过上不用再打仗的日子了吧。而这一切，都是你的功劳</div>`;
+            }
+            else
+            {
+                console.log("a2");
+                infoDiv.innerHTML = `<div>宇宙第一批SS级哨兵的出现令这场绵延千年的战争战局出现了巨大的变化，或许再过不久，大家就能过上不用再打仗的日子了吧。而这一切，都是你的功劳</div>`;
+            }
             cardBody.appendChild(infoDiv);
         }
     }
