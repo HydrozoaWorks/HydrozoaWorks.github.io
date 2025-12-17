@@ -2067,29 +2067,7 @@ margin-left: 10px;
         { id: 14, name: '苍渊', race: '龙系基因融合者', age: 20 },
     ];
 
-    const FALLBACK_NPC_IMAGE = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==';
-
-    const NPC_IMAGE_SOURCES = {
-        regular: {
-            0: '',
-            1: '',
-            2: '',
-            3: '',
-            4: '',
-            5: '',
-            6: '',
-            7: '',
-            8: '',
-            9: '',
-            10: '',
-            11: '',
-            12: '',
-            13: '',
-            14: '',
-        },
-    };
-
-    const resolveNpcImage = (id) => NPC_IMAGE_SOURCES.regular[id] || '';
+   
 
     const shoplist = [
         { name: '低级营养液', cost: 1, text: '恢复30%饱腹度和30%水分' },
@@ -2856,6 +2834,10 @@ margin-left: 10px;
             data.roomlevel1++;
             addhis(`主角为诊疗室购买了${shoplist[index].name}`);
         }
+    }
+    function resolveNpcImage(npcid)
+    {
+        return "npc"+npcid+".gif";
     }
 
     function buildApplicantButton(applicant) {
