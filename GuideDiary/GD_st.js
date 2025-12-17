@@ -1382,6 +1382,10 @@ margin-left: 10px;
 
     attachOverlayStyles();
     const overlayNode = buildOverlay();
+    const existingOverlay = hostDocument.getElementById(OVERLAY_ID);
+    if (existingOverlay) {
+        existingOverlay.remove();
+    }
     hostDocument.body.appendChild(overlayNode);
 
     const cleanupCallbacks = [];
@@ -3255,19 +3259,10 @@ margin-left: 10px;
             registerCleanup(() => chatChangedHandle.stop());
         }
 
-        const chatCreatedHandle = eventOn(tavern_events.CHAT_CREATED, () => {
-            destroyOverlay();
-        });
-        if (chatCreatedHandle && typeof chatCreatedHandle.stop === 'function') {
-            registerCleanup(() => chatCreatedHandle.stop());
-        }
+       
 
-        const groupChatCreatedHandle = eventOn(tavern_events.GROUP_CHAT_CREATED, () => {
-            destroyOverlay();
-        });
-        if (groupChatCreatedHandle && typeof groupChatCreatedHandle.stop === 'function') {
-            registerCleanup(() => groupChatCreatedHandle.stop());
-        }
+      
+       
     }
 
     async function resetLocationDescriptionEntry() {
@@ -4462,4 +4457,3 @@ margin-left: 10px;
     tavernWindow.showask = showask;
     tavernWindow.writeWorld = writeWorld;
 })();
-
