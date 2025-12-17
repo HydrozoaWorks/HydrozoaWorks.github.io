@@ -394,7 +394,7 @@
 }
 
 #${OVERLAY_ID} .form-control-plaintext {
-	padding: 0.375rem 0;
+	padding: 0.375rem 0.75rem;
 	color: #212529;
 	border: none;
 	background-color: transparent;
