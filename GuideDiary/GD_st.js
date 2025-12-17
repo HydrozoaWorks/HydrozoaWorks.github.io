@@ -2837,7 +2837,7 @@ margin-left: 10px;
     }
     function resolveNpcImage(npcid)
     {
-        return "npc"+npcid+".gif";
+        return "https://testingcf.jsdelivr.net/gh/HydrozoaWorks/HydrozoaWorks.github.io@v1.0.0/GuideDiary/npc"+npcid+".gif";
     }
 
     function buildApplicantButton(applicant) {
@@ -4462,3 +4462,4 @@ margin-left: 10px;
     tavernWindow.showask = showask;
     tavernWindow.writeWorld = writeWorld;
 })();
+
